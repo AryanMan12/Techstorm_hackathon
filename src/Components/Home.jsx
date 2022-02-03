@@ -20,8 +20,11 @@ const Home = () => {
       <Nav/>
       <BannerSearch className='Banner'>
           <Banner>Banner Image</Banner>
+          <SearchContainer>
           <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
-          <SearchButton type="submit" onClick={onSearch}><SearchIcon/></SearchButton>
+          <SearchButton onClick={onSearch}><SearchIcon/></SearchButton>
+          </SearchContainer>
+
       </BannerSearch>
       <Main>
           <CategoryName>Top Playlists</CategoryName>
@@ -48,15 +51,6 @@ const Banner = styled.div`
     background-color: #2c2c2c;
 `;
 
-const InputSearch = styled.input`
-    position: absolute;
-    top: 255px;
-    padding: 0px 12px;
-    height: 40px;
-    width: 500px;
-    font-size: 16px;
-`;
-
 const Main = styled.div`
     display: flex;
     flex-direction: column;
@@ -80,18 +74,27 @@ const Cards = styled.div`
     gap:15px;
 `;
 
+const SearchContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const InputSearch = styled.input`
+    padding: 0px 12px;
+    height: 40px;
+    width: 500px;
+    font-size: 16px;
+    border-right: none;
+`;
+
 const SearchButton = styled.button`
-    position: absolute;
-    top: 255px;
-    left: 980px;
     height: 44px;
     width: 44px;
     float: left;
     padding: 10px;
     color: #2c2c2c;
-    background-color: #ffffffff;
+    background-color: #ffffff;
     font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; 
+    border: none; 
     cursor: pointer;
 `;

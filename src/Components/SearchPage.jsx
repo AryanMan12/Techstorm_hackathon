@@ -18,8 +18,10 @@ const SearchPage = () => {
     }
   return <div>
       <Nav/>
-          <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
-          <SearchButton type="submit" onClick={onSearch}><SearchIcon/></SearchButton>
+          <SearchContainer>
+            <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
+            <SearchButton  onClick={onSearch}><SearchIcon/></SearchButton>
+          </SearchContainer>
           <Result>Result for: Search</Result>
           <Cards>
               <Card/>
@@ -48,29 +50,28 @@ const SearchPage = () => {
 export default SearchPage;
 
 
+const SearchContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
 const InputSearch = styled.input`
-    position: absolute;
-    top: 80px;
-    left: 450px;
     padding: 0px 12px;
     height: 40px;
     width: 500px;
     font-size: 16px;
+    border-right: none;
 `;
 
-const SearchButton = styled.input`
-    position: absolute;
-    top: 80px;
-    left: 950px;
+const SearchButton = styled.button`
     height: 44px;
     width: 44px;
     float: left;
     padding: 10px;
     color: #2c2c2c;
-    background-color: #ffffffff;
+    background-color: #ffffff;
     font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; 
+    border: none; 
     cursor: pointer;
 `;
 
