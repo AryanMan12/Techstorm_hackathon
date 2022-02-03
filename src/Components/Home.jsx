@@ -14,7 +14,8 @@ const Home = () => {
     useEffect(() => {
         getDocs(collection(db,'Academics')).then((value)=>value.forEach((el)=>{
             // console.log(typeof(new Array(el.data().playlists)));
-            setList(new Array(el.data().playlists));
+            let temp = new Array(el.data().playlists);
+            setList(list.concat(temp));
         }));
         //console.log(temp);
     }, [])
@@ -43,6 +44,7 @@ const Home = () => {
           <CategoryName>Top Playlists</CategoryName>
           <Cards>
               {list.map((el)=>{
+                  console.log(el);
                   return <Card key={el}/>;
               })}
           </Cards>

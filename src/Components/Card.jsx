@@ -4,27 +4,24 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 const Card = () => {
-
-    // const open = ()=>{
-    //     history.push({
-    //         pathname:"/view",
-    //         state:""
-    //     });
-    // }
     console.log("card");
-
-  return <Container>
+  return <Link to={{ 
+                pathname: "/view", 
+                state: "" 
+                }}>
+    <Container>
       <Num>Videos: 12</Num>
       <Categ>Category</Categ>
       <Title>Title</Title>
-  </Container>;
+  </Container>
+  </Link>;
 };
 
 export default Card;
 
 const Container = styled.div`
-    height: 50vh;
-    width: 50vw;
+    height: 300px;
+    width: 200px;
 `;
 
 const Image = styled.div`
