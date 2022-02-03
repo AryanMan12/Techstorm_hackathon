@@ -1,12 +1,17 @@
 import Home from './Components/Home';
-// import SearchPage from './Components/SearchPage';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
+import SearchPage from './Components/SearchPage';
 import styled from 'styled-components';
 import ViewingPage from './Components/ViewingPage';
 
 function App() {
   return (
     <Container className="App">
-      <Home/>
+      <Router>
+        <Route path="/" exact component={Home}/>
+        <Route path="/search" exact component={SearchPage}/>
+        <Route path="/view" exact component={ViewingPage}/>
+      </Router>
     </Container>
   );
 }

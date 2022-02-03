@@ -1,20 +1,32 @@
 import React from 'react';
-import { useState } from 'react';
+import {Link} from 'react-router-dom';
+import { useState , useEffect } from 'react';
 import Card from './Card';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import Nav from './Nav';
+import db from './firebase';
+import { getDocs,collection } from 'firebase/firestore';
 
 const Home = () => {
     let [search, setSearch] = useState("");
-
+    let [list, setList] = useState([]);
+    useEffect(async () => {
+        let temp = await getDocs(collection(db,'Academics'));
+        console.log(temp);
+  }, [])
     const searchChange = (e) => {
         setSearch(e.target.value);
     }
 
-    const onSearch = (e) => {
+    // const onSearch = (e) => {
+    //     history.push({
+    //         pathname:"/search",
+    //         state:search
+    //     })
+    // }
 
-    }
+
 
   return <div>
       <Nav/>
@@ -22,14 +34,23 @@ const Home = () => {
           <Banner>Banner Image</Banner>
           <SearchContainer>
           <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
-          <SearchButton onClick={onSearch}><SearchIcon/></SearchButton>
+          <Link to={{ 
+                pathname: "/search", 
+                state: search 
+                }}>
+            <SearchButton>
+                <SearchIcon/>
+            </SearchButton>
+        </Link>
           </SearchContainer>
 
       </BannerSearch>
       <Main>
           <CategoryName>Top Playlists</CategoryName>
           <Cards>
-              <Card/>
+              {list.map(()=>{
+                  return <Card />
+              })}
           </Cards>
       </Main>
   </div>;

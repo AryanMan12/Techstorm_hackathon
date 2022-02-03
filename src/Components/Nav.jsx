@@ -9,7 +9,14 @@ const Nav = () => {
               <Option>CATEGORY</Option>
               <Option>NEWEST</Option>
               <Option>UPDATED</Option>
-              <Option>TYPES</Option>
+              <Option>TYPES
+                  <Types className="drop">
+                      <Links>Academics</Links>
+                      <Links>Arts</Links>
+                      <Links>Music</Links>
+                      <Links>Sports</Links>
+                  </Types>
+              </Option>
           </Options>
       </NavBar>
   </Container>
@@ -46,4 +53,26 @@ const Options = styled.div`
 
 const Option = styled.div`
     font-size: 24;
+    position: relative;
+    display: inline-block;
+    &hover .drop{
+        display: block;
+    }
+`;
+
+const Types = styled.div`
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    &hover {background-color: #ddd;}
+`;
+
+const Links = styled.div`
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 `;

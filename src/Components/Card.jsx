@@ -1,14 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 // import YouTubePlaylist from 'react-youtube-playlist';
+import {Link} from 'react-router-dom';
 
 const Card = () => {
-    console.log(process.env.YOUTUBE_API_KEY);
-  return <Container>
+
+    // const open = ()=>{
+    //     history.push({
+    //         pathname:"/view",
+    //         state:""
+    //     });
+    // }
+
+  return <Link to={{ 
+                pathname: "/view", 
+                state: "" 
+                }}>
+    <Container>
       <Num>Videos: 12</Num>
       <Categ>Category</Categ>
       <Title>Title</Title>
-  </Container>;
+  </Container>
+  </Link>;
 };
 
 export default Card;

@@ -6,8 +6,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Card from './Card';
 
 
-const SearchPage = () => {
-    let [search, setSearch] = useState("");
+const SearchPage = ({state}) => {
+    let [search, setSearch] = useState(state);
 
     const searchChange = (e) => {
         setSearch(e.target.value);
@@ -22,26 +22,8 @@ const SearchPage = () => {
             <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
             <SearchButton  onClick={onSearch}><SearchIcon/></SearchButton>
           </SearchContainer>
-          <Result>Result for: Search</Result>
+          <Result>Result for: {state}</Result>
           <Cards>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
               <Card/>
           </Cards>
   </div>;
