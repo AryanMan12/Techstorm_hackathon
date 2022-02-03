@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+// import YouTubePlaylist from 'react-youtube-playlist';
 
 const Card = () => {
+    console.log(process.env.YOUTUBE_API_KEY);
   return <Container>
-      <Image></Image>
       <Num>Videos: 12</Num>
       <Categ>Category</Categ>
       <Title>Title</Title>
@@ -13,8 +14,8 @@ const Card = () => {
 export default Card;
 
 const Container = styled.div`
-    height: 300px;
-    width: 200px;
+    height: 50vh;
+    width: 50vw;
 `;
 
 const Image = styled.div`

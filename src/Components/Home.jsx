@@ -27,19 +27,6 @@ const Home = () => {
           <CategoryName>Top Playlists</CategoryName>
           <Cards>
               <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
           </Cards>
       </Main>
   </div>;
