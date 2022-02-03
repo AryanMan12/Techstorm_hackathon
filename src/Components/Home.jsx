@@ -10,11 +10,16 @@ const Home = () => {
     const searchChange = (e) => {
         setSearch(e.target.value);
     }
+
+    const onSearch = (e) => {
+
+    }
+
   return <div>
       <BannerSearch className='Banner'>
           <Banner>Banner Image</Banner>
           <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
-          <SearchButton type="submit" value={Search}></SearchButton>
+          <SearchButton type="submit" value={Search} onClick={onSearch}></SearchButton>
       </BannerSearch>
       <Main>
           <CategoryName>Category Name</CategoryName>
