@@ -1,19 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-// import YouTubePlaylist from 'react-youtube-playlist';
-import {Link} from 'react-router-dom';
 
 const Card = () => {
-
-    // const open = ()=>{
-    //     history.push({
-    //         pathname:"/view",
-    //         state:""
-    //     });
-    // }
-    console.log("card");
-
   return <Container>
+      <Image></Image>
       <Num>Videos: 12</Num>
       <Categ>Category</Categ>
       <Title>Title</Title>
@@ -23,8 +13,8 @@ const Card = () => {
 export default Card;
 
 const Container = styled.div`
-    height: 50vh;
-    width: 50vw;
+    height: 300px;
+    width: 200px;
 `;
 
 const Image = styled.div`
