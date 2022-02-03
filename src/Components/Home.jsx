@@ -11,22 +11,16 @@ import { getDocs,collection } from 'firebase/firestore';
 const Home = () => {
     let [search, setSearch] = useState("");
     let [list, setList] = useState([]);
-    useEffect(async () => {
-        let temp = await getDocs(collection(db,'Academics'));
-        console.log(temp);
-  }, [])
+    useEffect(() => {
+        getDocs(collection(db,'Academics')).then((value)=>value.forEach((el)=>{
+            // console.log(typeof(new Array(el.data().playlists)));
+            setList(new Array(el.data().playlists));
+        }));
+        //console.log(temp);
+    }, [])
     const searchChange = (e) => {
         setSearch(e.target.value);
     }
-
-    // const onSearch = (e) => {
-    //     history.push({
-    //         pathname:"/search",
-    //         state:search
-    //     })
-    // }
-
-
 
   return <div>
       <Nav/>
@@ -41,15 +35,15 @@ const Home = () => {
             <SearchButton>
                 <SearchIcon/>
             </SearchButton>
-        </Link>
+            </Link>
           </SearchContainer>
 
       </BannerSearch>
       <Main>
           <CategoryName>Top Playlists</CategoryName>
           <Cards>
-              {list.map(()=>{
-                  return <Card />
+              {list.map((el)=>{
+                  return <Card key={el}/>;
               })}
           </Cards>
       </Main>

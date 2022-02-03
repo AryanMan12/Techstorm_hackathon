@@ -11,17 +11,13 @@ const Card = () => {
     //         state:""
     //     });
     // }
+    console.log("card");
 
-  return <Link to={{ 
-                pathname: "/view", 
-                state: "" 
-                }}>
-    <Container>
+  return <Container>
       <Num>Videos: 12</Num>
       <Categ>Category</Categ>
       <Title>Title</Title>
-  </Container>
-  </Link>;
+  </Container>;
 };
 
 export default Card;

@@ -1,18 +1,21 @@
 import Home from './Components/Home';
-import {Route, BrowserRouter as Router} from 'react-router-dom';
+import {Route,Routes, BrowserRouter as Router} from 'react-router-dom';
 import SearchPage from './Components/SearchPage';
 import styled from 'styled-components';
 import ViewingPage from './Components/ViewingPage';
 
 function App() {
   return (
-    <Container className="App">
+    <Container>
       <Router>
-        <Route path="/" exact component={Home}/>
-        <Route path="/search" exact component={SearchPage}/>
-        <Route path="/view" exact component={ViewingPage}/>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/search" component={SearchPage}/>
+          <Route path="/view/:id" exact component={ViewingPage} return={({id})=><ViewingPage id={id} />}/>
+        </Routes>
       </Router>
     </Container>
+    
   );
 }
 
