@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Nav from './Nav';
 import styled from 'styled-components';
-import { Search } from '@material-ui/icons';
+import SearchIcon from '@mui/icons-material/Search';
 import Card from './Card';
 
 
@@ -19,7 +19,7 @@ const SearchPage = () => {
   return <div>
       <Nav/>
           <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
-          <SearchButton type="submit" value={Search} onClick={onSearch}></SearchButton>
+          <SearchButton type="submit" onClick={onSearch}><SearchIcon/></SearchButton>
           <Result>Result for: Search</Result>
           <Cards>
               <Card/>

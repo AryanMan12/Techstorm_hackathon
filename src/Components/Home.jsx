@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Card from './Card';
 import styled from 'styled-components';
-import { Search } from '@material-ui/icons';
+import SearchIcon from '@mui/icons-material/Search';
 import Nav from './Nav';
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
       <BannerSearch className='Banner'>
           <Banner>Banner Image</Banner>
           <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
-          <SearchButton type="submit" value={Search} onClick={onSearch}></SearchButton>
+          <SearchButton type="submit" onClick={onSearch}><SearchIcon/></SearchButton>
       </BannerSearch>
       <Main>
           <CategoryName>Top Playlists</CategoryName>
@@ -93,7 +93,7 @@ const Cards = styled.div`
     gap:15px;
 `;
 
-const SearchButton = styled.input`
+const SearchButton = styled.button`
     position: absolute;
     top: 255px;
     left: 980px;
