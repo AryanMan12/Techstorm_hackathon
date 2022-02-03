@@ -10,13 +10,17 @@ import { getDocs,collection } from 'firebase/firestore';
 
 const Home = () => {
     let [search, setSearch] = useState("");
-    let [list, setList] = useState([]);
+    let [plays, setPlay] = useState([]);
     useEffect(() => {
+        let list = [];
         getDocs(collection(db,'Academics')).then((value)=>value.forEach((el)=>{
-            // console.log(typeof(new Array(el.data().playlists)));
-            let temp = new Array(el.data().playlists);
-            setList(list.concat(temp));
-        }));
+            el.data().playlists.forEach((val)=>{
+                list = list.concat(val);
+            });
+            console.log(list);
+        })).finally(()=>{
+            setPlay(list);
+        });
         //console.log(temp);
     }, [])
     const searchChange = (e) => {
@@ -43,9 +47,8 @@ const Home = () => {
       <Main>
           <CategoryName>Top Playlists</CategoryName>
           <Cards>
-              {list.map((el)=>{
-                  console.log(el);
-                  return <Card key={el}/>;
+              {plays.map((el)=>{
+                  return (<Card key={el} id={el[0]}/>);
               })}
           </Cards>
       </Main>

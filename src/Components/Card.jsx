@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = () => {
+const Card = ({ id }) => {
   return <Container>
-      <Image></Image>
+      <Image>{id}</Image>
       <Num>Videos: 12</Num>
       <Categ>Category</Categ>
       <Title>Title</Title>
