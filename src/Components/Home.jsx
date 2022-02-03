@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Card from './Card';
 import styled from 'styled-components';
 import { Search } from '@material-ui/icons';
+import Nav from './Nav';
 
 const Home = () => {
     let [search, setSearch] = useState("");
@@ -16,13 +17,14 @@ const Home = () => {
     }
 
   return <div>
+      <Nav/>
       <BannerSearch className='Banner'>
           <Banner>Banner Image</Banner>
           <InputSearch type="text" placeholder='Search' value={search} onChange={searchChange}></InputSearch>
           <SearchButton type="submit" value={Search} onClick={onSearch}></SearchButton>
       </BannerSearch>
       <Main>
-          <CategoryName>Category Name</CategoryName>
+          <CategoryName>Top Playlists</CategoryName>
           <Cards>
               <Card/>
               <Card/>

@@ -1,12 +1,11 @@
 import Home from './Components/Home';
-import Nav from './Components/Nav';
+import SearchPage from './Components/SearchPage';
 import styled from 'styled-components';
 
 function App() {
   return (
     <Container className="App">
-      <Nav/>
-      <Home/>
+      <SearchPage/>
     </Container>
   );
 }
